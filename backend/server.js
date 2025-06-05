@@ -25,23 +25,25 @@ app.post("/signup",async(req,res)=>{
   });
 
 //POST LOGIN
-app.post("/",async(req,res)=>{
-    const {email,password}=req.body;
-    User.findOne({email}) //finds email
-    .then(user=>{ 
-        if(user){//if the user with email exists, then check their password
-            if(user.password===password){
-                res.json("Welcome bro");
-            }
-            else{
-                res.json("password is incorrect");
-            }
-        }
-        else{
-            res.json("email is incorrect");
-        }
-    })
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ success: false, message: "Email is incorrect" });
+    }
+
+    if (user.password !== password) {
+      return res.status(401).json({ success: false, message: "Password is incorrect" });
+    }
+
+    res.status(200).json({ success: true, message: "Login successful" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Server error", error: error.message });
+  }
 });
+
 
 // updating tasks
 app.put("/tasks",async(req,res)=>{  
