@@ -1,0 +1,38 @@
+
+
+
+.header {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+.empty {
+  background: transparent;
+  border: none;
+}
+body{
+  
+  
+  margin: 0;
+
+
+  background-repeat: no-repeat;
+}
+button{
+  background-color: rgb(6, 39, 55);
+  color:white;
+}
+button:hover{
+  background-color:rgb(157, 206, 212);
+  transition: ease-in;
+  transition-duration: 0.2s;
+  color:rgb(7, 50, 72);
+  box-shadow: 0 0 50px rgb(157, 206, 212);
+}
+<<<<<<< HEAD
+.logout{
+  padding:5px;
+  border-radius: 5px;
+}
+=======
+>>>>>>> 345965fc3ff5b2c769e2b105a73e8cac60611838
